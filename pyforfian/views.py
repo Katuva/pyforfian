@@ -11,3 +11,7 @@ from .models import (
 @view_config(route_name='index', renderer='index.mak')
 def index_view(request):
     return {'project': 'PyForfian'}
+
+@view_config(route_name='license', renderer='license.mak')
+def license_view(request):
+    return {}
