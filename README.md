@@ -1,4 +1,4 @@
 PyForfian
 =========
 
-PyForfian - Mailing list the Python way
+PyForfian - Mailing lists the Python way
