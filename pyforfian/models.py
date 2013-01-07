@@ -2,6 +2,9 @@ from sqlalchemy import (
     Column,
     Integer,
     Text,
+    String,
+    Sequence,
+    Unicode,
     )
 
 from sqlalchemy.ext.declarative import declarative_base
@@ -16,13 +19,16 @@ from zope.sqlalchemy import ZopeTransactionExtension
 DBSession = scoped_session(sessionmaker(extension=ZopeTransactionExtension()))
 Base = declarative_base()
 
+class User(Base):
+    __tablename__ = 'users'
+    id = Column(Integer, Sequence('user_id_seq'), primary_key=True)
+    realname = Column(Unicode(75))
+    username = Column(Unicode(50), unique=True)
+    email = Column(Unicode(100), unique=True)
+    password = Column(Unicode(75))
 
-class MyModel(Base):
-    __tablename__ = 'models'
-    id = Column(Integer, primary_key=True)
-    name = Column(Text, unique=True)
-    value = Column(Integer)
-
-    def __init__(self, name, value):
-        self.name = name
-        self.value = value
+    def __init__(self, realname, username, email, password):
+        self.realname = realname
+        self.username = username
+        self.email = email
+        self.password = password
