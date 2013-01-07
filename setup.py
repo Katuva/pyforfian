@@ -14,6 +14,9 @@ requires = [
     'pyramid_debugtoolbar',
     'zope.sqlalchemy',
     'waitress',
+    'cryptacular',
+    'pyramid_beaker',
+    'pycrypto',
     ]
 
 setup(name='pyforfian',
